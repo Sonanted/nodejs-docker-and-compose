@@ -1,0 +1,43 @@
+services:
+  database:
+    image: postgres:12-alpine
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - backend
+
+  backend:
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    depends_on:
+      - database
+    ports:
+      - "4000:8000"
+    env_file:
+      - .env
+    restart: unless-stopped
+    networks:
+      - backend
+
+  frontend:
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    depends_on:
+      - backend
+    ports:
+      - "8081:80"
+    restart: unless-stopped
+    networks:
+      - frontend
+
+volumes:
+  postgres_data:
+
+networks:
+  frontend:
+  backend:

@@ -12,6 +12,6 @@ export default () => ({
     expiresIn: process.env.JWT_EXPIRES_IN || '7d',
   },
   hash: {
-    saltRounds: process.env.HASH_SALT_ROUNDS || 10,
+    saltRounds: Number(process.env.HASH_SALT_ROUNDS) || 10,
   },
 });

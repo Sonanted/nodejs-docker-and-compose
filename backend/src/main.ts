@@ -8,7 +8,6 @@ async function bootstrap() {
   app.enableCors({
     origin: ['https://sonanted.nomorepartiessite.ru'],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-    credentials: true,
   });
 
   await app.listen(8000, '0.0.0.0');

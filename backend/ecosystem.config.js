@@ -8,7 +8,8 @@ module.exports = {
       autorestart: true,
       env_production: {
         NODE_ENV: 'production',
-        PORT: process.env.PORT,
+        PORT: process.env.PORT || 8000,
+        HOST: '0.0.0.0',
         POSTGRES_HOST: process.env.POSTGRES_HOST,
         POSTGRES_PORT: process.env.POSTGRES_PORT,
         POSTGRES_USER: process.env.POSTGRES_USER,

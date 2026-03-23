@@ -6,7 +6,7 @@ module.exports = {
       name: 'backend',
       script: 'dist/main.js',
       autorestart: true,
-      env_production: {
+      env: {
         NODE_ENV: 'production',
         PORT: process.env.PORT || 8000,
         HOST: '0.0.0.0',
